@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nilesh Charthad - PF Consultant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .profile-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .header-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            padding: 40px 30px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,106.7C1248,96,1344,96,1392,96L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .name {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .designation {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .company {
+            font-size: 14px;
+            opacity: 0.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-section {
+            padding: 30px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1e3c72;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .service-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            font-size: 14px;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .service-icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .contact-btn {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+        }
+
+        .call-btn {
+            background: #2a5298;
+            color: white;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .inquiry-form {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .success-message {
+            background: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .admin-panel {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            display: none;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logout-btn {
+            padding: 8px 16px;
+            background: #f44336;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .inquiry-list {
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .inquiry-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .inquiry-item strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #1e3c72;
+        }
+
+        .inquiry-item p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .timestamp {
+            font-size: 12px;
+            color: #999;
+            margin-top: 10px;
+        }
+
+        .admin-login {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            margin: 50px auto;
+            display: none;
+        }
+
+        .admin-login h2 {
+            text-align: center;
+            color: #1e3c72;
+            margin-bottom: 30px;
+        }
+
+        .admin-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #1e3c72;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .no-inquiries {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Main Profile Page -->
+        <div id="mainPage">
+            <div class="profile-card">
+                <div class="header-section">
+                    <div class="profile-pic">NC</div>
+                    <div class="name">Nilesh Charthad</div>
+                    <div class="designation">PF Consultant</div>
+                    <div class="company">Mansvi PF Consultancy Service</div>
+                </div>
+
+                <div class="info-section">
+                    <div class="section-title">
+                        <span>🏢</span>
+                        <span>हमारी सेवाएं</span>
+                    </div>
+                    <div class="services-grid">
+                        <div class="service-item">
+                            <div class="service-icon">📋</div>
+                            <div>PF Registration</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-icon">💰</div>
+                            <div>PF Withdrawal</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-icon">📊</div>
+                            <div>PF Transfer</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-icon">📝</div>
+                            <div>PF Returns Filing</div>
+                        </div>
+                    </div>
+
+                    <div class="section-title">
+                        <span>📸</span>
+                        <span>हमारा काम</span>
+                    </div>
+                    <div class="gallery">
+                        <div class="gallery-item">📄</div>
+                        <div class="gallery-item">✅</div>
+                        <div class="gallery-item">💼</div>
+                        <div class="gallery-item">🎯</div>
+                    </div>
+
+                    <div class="contact-buttons">
+                        <button class="contact-btn whatsapp-btn" onclick="contactWhatsApp()">
+                            <span>💬</span>
+                            <span>WhatsApp</span>
+                        </button>
+                        <button class="contact-btn call-btn" onclick="makeCall()">
+                            <span>📞</span>
+                            <span>Call Now</span>
+                        </button>
+                    </div>
+
+                    <div class="section-title">
+                        <span>📝</span>
+                        <span>पूछताछ फॉर्म</span>
+                    </div>
+                    <div class="inquiry-form">
+                        <form id="inquiryForm" onsubmit="submitInquiry(event)">
+                            <div class="form-group">
+                                <label>आपका नाम *</label>
+                                <input type="text" id="customerName" required placeholder="अपना पूरा नाम लिखें">
+                            </div>
+                            <div class="form-group">
+                                <label>मोबाइल नंबर *</label>
+                                <input type="tel" id="customerPhone" required placeholder="10 अंकों का मोबाइल नंबर" pattern="[0-9]{10}">
+                            </div>
+                            <div class="form-group">
+                                <label>ईमेल (Optional)</label>
+                                <input type="email" id="customerEmail" placeholder="आपका ईमेल">
+                            </div>
+                            <div class="form-group">
+                                <label>आपकी पूछताछ *</label>
+                                <textarea id="customerMessage" required placeholder="अपनी समस्या या सवाल यहाँ लिखें"></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Submit करें</button>
+                        </form>
+                        <div class="success-message" id="successMessage">
+                            ✅ धन्यवाद! आपकी पूछताछ सफलतापूर्वक भेज दी गई है। हम जल्द ही संपर्क करेंगे।
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Login Page -->
+        <div class="admin-login" id="adminLogin">
+            <h2>🔐 Admin Login</h2>
+            <form onsubmit="adminLogin(event)">
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="adminPassword" required placeholder="Enter admin password">
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+        </div>
+
+        <!-- Admin Panel -->
+        <div class="admin-panel" id="adminPanel">
+            <div class="admin-header">
+                <h2>📊 Inquiry Dashboard</h2>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+            <div class="inquiry-list" id="inquiryList">
+                <div class="no-inquiries">कोई पूछताछ नहीं है</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Toggle Button -->
+    <button class="admin-toggle" onclick="toggleAdmin()">🔑</button>
+
+    <script>
+        // Admin password (आप इसे बदल सकते हैं)
+        const ADMIN_PASSWORD = "nilesh@123";
+        
+        let inquiries = JSON.parse(localStorage.getItem('inquiries')) || [];
+        let isAdminLoggedIn = false;
+
+        function contactWhatsApp() {
+            window.open('https://wa.me/918668451110?text=नमस्ते, मुझे PF consultancy के बारे में जानकारी चाहिए।', '_blank');
+        }
+
+        function makeCall() {
+            window.location.href = 'tel:+918668451110';
+        }
+
+        function submitInquiry(event) {
+            event.preventDefault();
+            
+            const inquiry = {
+                id: Date.now(),
+                name: document.getElementById('customerName').value,
+                phone: document.getElementById('customerPhone').value,
+                email: document.getElementById('customerEmail').value,
+                message: document.getElementById('customerMessage').value,
+                timestamp: new Date().toLocaleString('hi-IN')
+            };
+
+            inquiries.unshift(inquiry);
+            localStorage.setItem('inquiries', JSON.stringify(inquiries));
+
+            document.getElementById('inquiryForm').reset();
+            document.getElementById('successMessage').style.display = 'block';
+
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+        }
+
+        function toggleAdmin() {
+            if (isAdminLoggedIn) {
+                document.getElementById('mainPage').style.display = 'none';
+                document.getElementById('adminPanel').style.display = 'block';
+                loadInquiries();
+            } else {
+                document.getElementById('mainPage').style.display = 'none';
+                document.getElementById('adminLogin').style.display = 'block';
+            }
+        }
+
+        function adminLogin(event) {
+            event.preventDefault();
+            const password = document.getElementById('adminPassword').value;
+            
+            if (password === ADMIN_PASSWORD) {
+                isAdminLoggedIn = true;
+                document.getElementById('adminLogin').style.display = 'none';
+                document.getElementById('adminPanel').style.display = 'block';
+                loadInquiries();
+            } else {
+                alert('गलत पासवर्ड! कृपया सही पासवर्ड डालें।');
+            }
+        }
+
+        function loadInquiries() {
+            const listContainer = document.getElementById('inquiryList');
+            
+            if (inquiries.length === 0) {
+                listContainer.innerHTML = '<div class="no-inquiries">कोई पूछताछ नहीं है</div>';
+                return;
+            }
+
+            listContainer.innerHTML = inquiries.map(inquiry => `
+                <div class="inquiry-item">
+                    <strong>👤 ${inquiry.name}</strong>
+                    <p>📱 <strong>Phone:</strong> ${inquiry.phone}</p>
+                    ${inquiry.email ? `<p>📧 <strong>Email:</strong> ${inquiry.email}</p>` : ''}
+                    <p>💬 <strong>Message:</strong> ${inquiry.message}</p>
+                    <p class="timestamp">🕐 ${inquiry.timestamp}</p>
+                </div>
+            `).join('');
+        }
+
+        function logout() {
+            isAdminLoggedIn = false;
+            document.getElementById('adminPanel').style.display = 'none';
+            document.getElementById('mainPage').style.display = 'block';
+            document.getElementById('adminPassword').value = '';
+        }
+    </script>
+</body>
+</html>
